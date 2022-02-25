@@ -35,7 +35,7 @@ export const canvas = [
   [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
 ];
 
-export function checkValidMovement(nextPosition: any, walker: string) {
+export function checkValidMovement(nextPosition: IPositionProps, walker: string) {
   const canvasValue = canvas[nextPosition.y][nextPosition.x];
 
   let result =

@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { ECanvas } from "../../settings/constants";
-import { IProps } from "../../settings/types";
+import { IPositionProps, IProps } from "../../settings/types";
 import { canvas, checkValidMovement, handleNextMovement } from "./helpers";
 
 export const CanvasContext = React.createContext({
     canvas: [],
-    updateCanvas: (direction, currentPosition, walker) => null
+    updateCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => null
 })
 
 const CanvasProvider = (props: IProps) => {
     const [canvasState, setCanvasState] = useState({
         canvas,
-        updateCanvas: (direction: any, currentPosition: any, walker: any) => {
-
+        updateCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => {
             const nextPosition = handleNextMovement(direction, currentPosition);
             const nextMove = checkValidMovement(nextPosition, walker);
 
