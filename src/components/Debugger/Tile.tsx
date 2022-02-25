@@ -12,6 +12,8 @@ const Tile = (props: ITileProps) => {
                 return "white";
             case ECanvas.ENEMY:
                 return "red";
+            case ECanvas.ENEMYBIG:
+                return "red";
             case ECanvas.HERO:
                 return "magenta";
             case ECanvas.CHEST:

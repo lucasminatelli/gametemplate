@@ -18,7 +18,7 @@ const Hero = (props: IProps) => {
             backgroundRepeat: "no-repeat",
             animation: "hero-animation 1s steps(4) infinite",
             position: "absolute",
-            transform: `scaleX(${direction === EDirection.RIGHT ? 1 : -1})`,
+            transform: `scaleX(${direction === EDirection.RIGHT ? 1 : ("") || direction === EDirection.LEFT ? -1 : ("")}`,
             zIndex: 10,
         }} />
     )

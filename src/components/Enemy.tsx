@@ -20,7 +20,7 @@ const Enemy = (props: IProps) => {
             backgroundRepeat: "no-repeat",
             animation: "enemy-animation 1s steps(4) infinite",
             position: "absolute",
-            transform: `scaleX(${direction === EDirection.RIGHT ? 1 : -1})`,
+            transform: `scaleX(${direction === EDirection.RIGHT ? 1 : ("") || direction === EDirection.LEFT ? -1 : ("")}`,
         }} />
     )
 }
