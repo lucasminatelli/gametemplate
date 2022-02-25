@@ -1,7 +1,7 @@
 import useEnemyMovement from "../hooks/useEnemyMovement";
 import { EDirection, TILE_SIZE } from "../settings/constants";
 import { IPositionProps } from "../settings/types";
-import "./index.css";
+import "./Animations.css";
 
 interface IProps {
     initialPosition: IPositionProps
