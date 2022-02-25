@@ -1,5 +1,5 @@
 import useEnemyMovement from "../hooks/useEnemyMovement";
-import { EDirection, TILE_SIZE } from "../settings/constants";
+import { EDirection, EWalker, TILE_SIZE } from "../settings/constants";
 import { IPositionProps } from "../settings/types";
 import "./Animations.css";
 
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const EnemyBig = (props: IProps) => {
-    const { position, direction } = useEnemyMovement(props.initialPosition)
+    const { position, direction } = useEnemyMovement(props.initialPosition, EWalker.ENEMYBIG)
     return (
         <div style={{
             top: TILE_SIZE * position.y,

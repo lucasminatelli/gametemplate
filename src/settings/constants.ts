@@ -20,7 +20,9 @@ export enum ECanvas {
   ENEMYBIG = 7,
 }
 
+
 export enum EWalker {
   HERO = "HERO",
   ENEMY = "ENEMY",
+  ENEMYBIG = "ENEMYBIG"
 }

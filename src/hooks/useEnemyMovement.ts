@@ -4,7 +4,7 @@ import { CanvasContext } from "../contexts/CanvasContext";
 import { EDirection, EWalker } from "../settings/constants";
 import { IPositionProps } from "../settings/types";
 
-const useEnemyMovement = (initialPosition: IPositionProps) => {
+const useEnemyMovement = (initialPosition: IPositionProps, walker: string) => {
   const canvasContext = useContext(CanvasContext);
   const [position, setPosition] = useState(initialPosition);
   const [direction, setDirection] = useState(EDirection.RIGHT);
@@ -16,7 +16,7 @@ const useEnemyMovement = (initialPosition: IPositionProps) => {
     const movement = canvasContext.setCanvas(
       randomDirection,
       position,
-      EWalker.ENEMY
+      walker
     );
 
     if (movement.nextMove.valid) {
