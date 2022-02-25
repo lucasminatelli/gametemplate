@@ -15,7 +15,7 @@ const Enemy = (props: IProps) => {
             top: TILE_SIZE * position.y,
             left: TILE_SIZE * position.x,
             height: TILE_SIZE,
-            backgroundImage: "url(./assets/mini-demon.png)",
+            backgroundImage: "url(./assets/enemy.png)",
             backgroundRepeat: "no-repeat",
             backgroundPosition: `0px -${TILE_SIZE}px`,
             animation: "enemy-animation 1s steps(4) infinite",
