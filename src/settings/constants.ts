@@ -1,4 +1,5 @@
 export const TILE_SIZE = 48;
+export const HEAD_OFFSET = 12;
 export const GAME_SIZE = 20 * TILE_SIZE;
 
 export enum EDirection {
@@ -15,6 +16,8 @@ export enum ECanvas {
   ENEMY = 3,
   HERO = 4,
   CHEST = 5,
+  TRAP = 6,
+  ENEMYBIG = 7,
 }
 
 export enum EWalker {

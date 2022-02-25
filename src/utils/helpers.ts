@@ -25,15 +25,17 @@ const DR = ECanvas.DOOR;
 const EN = ECanvas.ENEMY;
 const HE = ECanvas.HERO;
 const CH = ECanvas.CHEST;
+const TR = ECanvas.TRAP;
+const EB = ECanvas.ENEMYBIG;
 
 export const canvas = [
   [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
   [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, DR, DR, WL, WL, WL, WL, WL],
-  [WL, FL, FL, WL, FL, FL, FL, FL, WL, FL, FL, FL, EN, FL, FL, FL, WL, FL, FL, WL],
+  [WL, FL, FL, WL, FL, FL, FL, FL, WL, FL, FL, FL, EN, FL, FL, EB, WL, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
   [WL, FL, CH, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, TR, TR, TR, TR, TR, TR, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
@@ -66,7 +68,7 @@ export function checkValidMovement(
 function getHeroValidMoves(canvasValue: any) {
   return {
     valid: canvasValue === ECanvas.FLOOR || canvasValue === ECanvas.ENEMY || canvasValue === ECanvas.CHEST,
-    dead: canvasValue === ECanvas.ENEMY,
+    dead: canvasValue === ECanvas.ENEMY || canvasValue === ECanvas.ENEMYBIG || canvasValue === ECanvas.TRAP,
     chest: canvasValue === ECanvas.CHEST,
     door: canvasValue === ECanvas.DOOR,
   };

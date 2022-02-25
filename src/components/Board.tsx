@@ -4,7 +4,9 @@ import { ECanvas, GAME_SIZE } from "../settings/constants";
 import { canvas } from "../utils/helpers";
 import Chest from "./Chest";
 import Enemy from "./Enemy";
+import EnemyBig from "./EnemyBig";
 import Hero from "./Hero";
+import Trap from "./Trap";
 
 
 const getCanvasMap = () => {
@@ -28,6 +30,12 @@ const getCanvasMap = () => {
           break;
         case ECanvas.ENEMY:
           array.push(<Enemy key={key} initialPosition={position} />);
+          break;
+        case ECanvas.TRAP:
+          array.push(<Trap key={key} initialPosition={position} />);
+          break;
+        case ECanvas.ENEMYBIG:
+          array.push(<EnemyBig key={key} initialPosition={position} />);
           break;
         default: break;
       }

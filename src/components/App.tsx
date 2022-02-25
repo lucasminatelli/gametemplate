@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CanvasProvider from '../contexts/CanvasContext';
 import ChestsProvider from '../contexts/ChestsContext';
 import { GAME_SIZE } from '../settings/constants';
@@ -6,6 +7,7 @@ import Board from './Board';
 import Debugger from './Debugger';
 
 function App() {
+  const [isEnabled, setIsEnabled] = useState(false);
   return (
     <div className="App">
       <div
@@ -15,9 +17,17 @@ function App() {
           height: GAME_SIZE,
         }}
       >
+        <div>
+          <button style={{
+            position: "absolute",
+            zIndex: 5,
+          }} onClick={() => setIsEnabled(!isEnabled)}>
+            Debug
+          </button>
+        </div>
         <CanvasProvider>
           <ChestsProvider>
-            <Debugger />
+            {isEnabled === true ? <Debugger /> : <></>}
             <Board />
           </ChestsProvider>
         </CanvasProvider>

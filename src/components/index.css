@@ -16,11 +16,29 @@
     }
 }
 
+@keyframes enemy-big-animation {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -384px;
+    }
+}
+
 @keyframes chest-animation {
     from {
         background-position-x: 0;
     }
     to {
         background-position-x: -96px;
+    }
+}
+
+@keyframes trap-animation {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -384px;
     }
 }
