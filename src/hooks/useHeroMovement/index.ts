@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import useEventListener from "@use-it/event-listener";
 import { CanvasContext } from "../../contexts/canvas";
 import { EDirection, EWalker } from "../../settings/constants";
+import { IPositionProps } from "../../settings/types";
 
-function useHeroMovement(initialPosition: any) {
+const useHeroMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
   const [position, setPosition] = useState(initialPosition);
   const [direction, setDirection] = useState(EDirection.RIGHT);

@@ -1,9 +1,10 @@
 import useEnemyMovement from '../../hooks/useEnemyMovement';
 import { TILE_SIZE, EDirection } from '../../settings/constants';
+import { IPositionProps } from '../../settings/types';
 import "./index.css";
 
 interface IProps {
-    initialPosition: { x: number; y: number }
+    initialPosition: IPositionProps;
 }
 
 const Enemy = (props: IProps) => {

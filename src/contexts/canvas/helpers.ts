@@ -1,6 +1,7 @@
 import { ECanvas, EDirection, EWalker } from "../../settings/constants";
+import { IPositionProps } from "../../settings/types";
 
-export function handleNextMovement(direction: any, position: any) {
+export const handleNextMovement = (direction: any, position: IPositionProps) => {
   switch (direction) {
     case EDirection.LEFT:
       return { x: position.x - 1, y: position.y };

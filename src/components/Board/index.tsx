@@ -3,7 +3,7 @@ import { ECanvas, GAME_SIZE } from '../../settings/constants';
 import Enemy from '../Enemy';
 import Hero from '../Hero';
 
-function getCanvasMap() {
+const getCanvasMap = () => {
   const array = [];
 
   for (let y = 0; y < canvas.length; y++) {
@@ -11,7 +11,7 @@ function getCanvasMap() {
     for (let x = 0; x < canvasY.length; x++) {
       const canvasYX = canvasY[x];
 
-      const position = { x: x, y: y };
+      const position = { x, y };
       const text = canvas[y][x] || canvasYX;
       const key = `${x}-${y}`;
 

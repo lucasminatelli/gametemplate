@@ -1,11 +1,9 @@
 import useHeroMovement from '../../hooks/useHeroMovement';
 import { TILE_SIZE, EDirection } from '../../settings/constants';
+import { IPositionProps } from '../../settings/types';
 import "./index.css";
 interface IProps {
-    initialPosition: {
-        x: number,
-        y: number
-    }
+    initialPosition: IPositionProps;
 }
 
 const Hero = (props: IProps) => {

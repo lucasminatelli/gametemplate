@@ -2,8 +2,9 @@ import useInterval from "@use-it/interval";
 import { useContext, useState } from "react";
 import { CanvasContext } from "../../contexts/canvas";
 import { EDirection, EWalker } from "../../settings/constants";
+import { IPositionProps } from "../../settings/types";
 
-function useEnemyMovement(initialPosition: any) {
+const useEnemyMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
   const [position, setPosition] = useState(initialPosition);
   const [direction, setDirection] = useState(EDirection.RIGHT);
@@ -12,12 +13,12 @@ function useEnemyMovement(initialPosition: any) {
     const random = Math.floor(Math.random() * 4);
     const directions = Object.values(EDirection);
     const randomDirection = directions[random];
-
     const movement = canvasContext.updateCanvas(
       randomDirection,
       position,
       EWalker.ENEMY
     );
+
     if (movement.nextMove.valid) {
       setDirection(randomDirection);
       setPosition(movement.nextPosition);
