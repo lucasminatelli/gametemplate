@@ -1,5 +1,5 @@
 export const TILE_SIZE = 48;
-export const GAME_SIZE = 5 * TILE_SIZE; // 240px
+export const GAME_SIZE = 10 * TILE_SIZE; // 480px
 
 export enum EDirection {
   LEFT = "ArrowLeft",

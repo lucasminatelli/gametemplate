@@ -22,11 +22,16 @@ const EN = ECanvas.ENEMY;
 const HE = ECanvas.HERO;
 
 export const canvas = [
-  [WL, WL, DR, WL, WL],
-  [WL, FL, FL, EN, WL],
-  [WL, FL, FL, FL, WL],
-  [WL, HE, FL, FL, WL],
-  [WL, WL, WL, WL, WL],
+  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
+  [WL, WL, WL, WL, DR, DR, WL, WL, WL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, EN, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, HE, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
 ];
 
 export function checkValidMovement(nextPosition: any, walker: string) {
