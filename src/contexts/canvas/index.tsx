@@ -5,13 +5,13 @@ import { canvas, checkValidMovement, handleNextMovement } from "./helpers";
 
 export const CanvasContext = React.createContext({
     canvas: [],
-    updateCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => null
+    setCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => null
 })
 
 const CanvasProvider = (props: IProps) => {
     const [canvasState, setCanvasState] = useState({
         canvas,
-        updateCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => {
+        setCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => {
             const nextPosition = handleNextMovement(direction, currentPosition);
             const nextMove = checkValidMovement(nextPosition, walker);
 
@@ -25,7 +25,7 @@ const CanvasProvider = (props: IProps) => {
 
                     return {
                         canvas: newCanvas,
-                        updateCanvas: prevState.updateCanvas
+                        setCanvas: prevState.setCanvas
                     }
                 })
             }

@@ -13,7 +13,7 @@ const useEnemyMovement = (initialPosition: IPositionProps) => {
     const random = Math.floor(Math.random() * 4);
     const directions = Object.values(EDirection);
     const randomDirection = directions[random];
-    const movement = canvasContext.updateCanvas(
+    const movement = canvasContext.setCanvas(
       randomDirection,
       position,
       EWalker.ENEMY

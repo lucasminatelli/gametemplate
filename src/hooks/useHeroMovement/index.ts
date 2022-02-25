@@ -15,7 +15,7 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
       return;
     }
 
-    const movement = canvasContext.updateCanvas(
+    const movement = canvasContext.setCanvas(
       direction,
       position,
       EWalker.HERO
