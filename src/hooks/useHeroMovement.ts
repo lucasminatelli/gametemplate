@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import useEventListener from "@use-it/event-listener";
-import { CanvasContext } from "../../contexts/canvas";
-import { EDirection, EWalker } from "../../settings/constants";
-import { IPositionProps } from "../../settings/types";
+import { EDirection, EWalker } from "../settings/constants";
+import { IPositionProps } from "../settings/types";
+import { CanvasContext } from "../contexts/CanvasContext";
 
 const useHeroMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
@@ -15,11 +15,7 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
       return;
     }
 
-    const movement = canvasContext.setCanvas(
-      direction,
-      position,
-      EWalker.HERO
-    );
+    const movement = canvasContext.setCanvas(direction, position, EWalker.HERO);
 
     if (movement.nextMove.valid) {
       setPosition(movement.nextPosition);
@@ -39,6 +35,6 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
     position,
     direction,
   };
-}
+};
 
 export default useHeroMovement;

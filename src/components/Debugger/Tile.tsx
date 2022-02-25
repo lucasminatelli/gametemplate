@@ -1,5 +1,5 @@
-import { ECanvas, TILE_SIZE } from '../../../settings/constants';
-import { ITileProps } from '../../../settings/types';
+import { ECanvas, TILE_SIZE } from "../../settings/constants";
+import { ITileProps } from "../../settings/types";
 
 const Tile = (props: ITileProps) => {
     const getTileColor = () => {

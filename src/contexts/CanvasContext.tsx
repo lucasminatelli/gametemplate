@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ECanvas } from "../../settings/constants";
-import { IPositionProps, IProps } from "../../settings/types";
-import { canvas, checkValidMovement, handleNextMovement } from "./helpers";
+import { ECanvas } from "../settings/constants";
+import { IPositionProps, IProps } from "../settings/types";
+import { canvas, checkValidMovement, handleNextMovement } from "../utils/helpers";
 
 export const CanvasContext = React.createContext({
     canvas: [],

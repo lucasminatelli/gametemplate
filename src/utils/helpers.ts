@@ -1,5 +1,5 @@
-import { ECanvas, EDirection, EWalker } from "../../settings/constants";
-import { IPositionProps } from "../../settings/types";
+import { ECanvas, EDirection, EWalker } from "../settings/constants";
+import { IPositionProps } from "../settings/types";
 
 export const handleNextMovement = (direction: any, position: IPositionProps) => {
   switch (direction) {

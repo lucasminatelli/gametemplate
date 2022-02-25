@@ -1,8 +1,8 @@
 import useInterval from "@use-it/interval";
 import { useContext, useState } from "react";
-import { CanvasContext } from "../../contexts/canvas";
-import { EDirection, EWalker } from "../../settings/constants";
-import { IPositionProps } from "../../settings/types";
+import { CanvasContext } from "../contexts/CanvasContext";
+import { EDirection, EWalker } from "../settings/constants";
+import { IPositionProps } from "../settings/types";
 
 const useEnemyMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
@@ -33,6 +33,6 @@ const useEnemyMovement = (initialPosition: IPositionProps) => {
     position,
     direction,
   };
-}
+};
 
 export default useEnemyMovement;

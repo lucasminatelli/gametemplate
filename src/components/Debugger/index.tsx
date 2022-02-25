@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { CanvasContext } from '../../contexts/canvas';
+import { CanvasContext } from '../../contexts/CanvasContext';
 import Tile from './Tile';
 
 const getCanvasMap = (canvas: Array<[]>) => {

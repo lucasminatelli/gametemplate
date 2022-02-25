@@ -1,7 +1,8 @@
-import { canvas } from '../../contexts/canvas/helpers';
-import { ECanvas, GAME_SIZE } from '../../settings/constants';
-import Enemy from '../Enemy';
-import Hero from '../Hero';
+import { ECanvas, GAME_SIZE } from "../settings/constants";
+import { canvas } from "../utils/helpers";
+import Enemy from "./Enemy";
+import Hero from "./Hero";
+
 
 const getCanvasMap = () => {
   const array = [];

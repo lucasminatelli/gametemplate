@@ -1,4 +1,4 @@
-import CanvasProvider from '../contexts/canvas';
+import CanvasProvider from '../contexts/CanvasContext';
 import { GAME_SIZE } from '../settings/constants';
 import './App.css';
 import Board from './Board';
