@@ -1,5 +1,5 @@
 export const TILE_SIZE = 48;
-export const GAME_SIZE = 10 * TILE_SIZE; // 480px
+export const GAME_SIZE = 20 * TILE_SIZE;
 
 export enum EDirection {
   LEFT = "ArrowLeft",
@@ -14,6 +14,7 @@ export enum ECanvas {
   DOOR = 2,
   ENEMY = 3,
   HERO = 4,
+  CHEST = 5,
 }
 
 export enum EWalker {

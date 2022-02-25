@@ -15,3 +15,12 @@
         background-position-x: -192px;
     }
 }
+
+@keyframes chest-animation {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -96px;
+    }
+}

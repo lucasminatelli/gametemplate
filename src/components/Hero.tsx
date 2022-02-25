@@ -16,7 +16,7 @@ const Hero = (props: IProps) => {
             height: TILE_SIZE,
             backgroundImage: "url(./assets/hero.png)",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: `0px -${TILE_SIZE}px`,
+            backgroundPosition: `0px`,
             animation: "hero-animation 1s steps(4) infinite",
             position: "absolute",
             transform: `scaleX(${direction === EDirection.RIGHT ? 1 : -1})`,

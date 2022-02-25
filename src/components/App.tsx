@@ -1,4 +1,5 @@
 import CanvasProvider from '../contexts/CanvasContext';
+import ChestsProvider from '../contexts/ChestsContext';
 import { GAME_SIZE } from '../settings/constants';
 import './App.css';
 import Board from './Board';
@@ -15,8 +16,10 @@ function App() {
         }}
       >
         <CanvasProvider>
-          <Debugger />
-          <Board />
+          <ChestsProvider>
+            <Debugger />
+            <Board />
+          </ChestsProvider>
         </CanvasProvider>
       </div>
     </div>

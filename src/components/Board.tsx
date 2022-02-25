@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import { ChestsContext } from "../contexts/ChestsContext";
 import { ECanvas, GAME_SIZE } from "../settings/constants";
 import { canvas } from "../utils/helpers";
+import Chest from "./Chest";
 import Enemy from "./Enemy";
 import Hero from "./Hero";
 
@@ -20,6 +23,9 @@ const getCanvasMap = () => {
         case ECanvas.HERO:
           array.push(<Hero key={key} initialPosition={position} />);
           break;
+        case ECanvas.CHEST:
+          array.push(<Chest key={key} initialPosition={position} />);
+          break;
         case ECanvas.ENEMY:
           array.push(<Enemy key={key} initialPosition={position} />);
           break;
@@ -33,10 +39,21 @@ const getCanvasMap = () => {
 const elements = getCanvasMap();
 
 const Board = () => {
+  const chestsContext = useContext(ChestsContext);
+
   return (
     <div>
       {elements}
-      <img src="./assets/tileset.png" alt="" width={GAME_SIZE} height={GAME_SIZE} />
+      {
+        chestsContext.totalChests === chestsContext.openedChests.total && (
+          <img src='./assets/opened-door.png' alt='' style={{
+            position: "absolute",
+            left: 578,
+            top: 0,
+          }} />
+        )
+      }
+      <img src="./assets/tileset.gif" alt="" width={GAME_SIZE} height={GAME_SIZE} />
     </div>
   )
 }

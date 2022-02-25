@@ -14,6 +14,8 @@ const Tile = (props: ITileProps) => {
                 return "red";
             case ECanvas.HERO:
                 return "magenta";
+            case ECanvas.CHEST:
+                return "cyan";
             default: break;
         }
     }

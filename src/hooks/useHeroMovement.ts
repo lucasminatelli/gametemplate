@@ -3,9 +3,11 @@ import useEventListener from "@use-it/event-listener";
 import { EDirection, EWalker } from "../settings/constants";
 import { IPositionProps } from "../settings/types";
 import { CanvasContext } from "../contexts/CanvasContext";
+import { ChestsContext } from "../contexts/ChestsContext";
 
 const useHeroMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
+  const chestsContext = useContext(ChestsContext);
   const [position, setPosition] = useState(initialPosition);
   const [direction, setDirection] = useState(EDirection.RIGHT);
 
@@ -25,8 +27,14 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
       alert("Game-over");
       window.location.reload();
     }
-    if (movement.nextMove.door) {
-      alert("You win");
+    if (movement.nextMove.chest) {
+      chestsContext.updateOpenedChests(movement.nextPosition);
+    }
+    if (
+      chestsContext.openedChests.total === chestsContext.totalChests &&
+      movement.nextMove.door
+    ) {
+      alert("Win");
       window.location.reload();
     }
   });

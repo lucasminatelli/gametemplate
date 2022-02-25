@@ -1,7 +1,10 @@
 import { ECanvas, EDirection, EWalker } from "../settings/constants";
 import { IPositionProps } from "../settings/types";
 
-export const handleNextMovement = (direction: any, position: IPositionProps) => {
+export const handleNextMovement = (
+  direction: string,
+  position: IPositionProps
+) => {
   switch (direction) {
     case EDirection.LEFT:
       return { x: position.x - 1, y: position.y };
@@ -14,28 +17,42 @@ export const handleNextMovement = (direction: any, position: IPositionProps) => 
     default:
       break;
   }
-}
+};
 
 const FL = ECanvas.FLOOR;
 const WL = ECanvas.WALL;
 const DR = ECanvas.DOOR;
 const EN = ECanvas.ENEMY;
 const HE = ECanvas.HERO;
+const CH = ECanvas.CHEST;
 
 export const canvas = [
-  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
-  [WL, WL, WL, WL, DR, DR, WL, WL, WL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, EN, FL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, HE, FL, FL, FL, FL, FL, FL, FL, WL],
-  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
+  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
+  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, DR, DR, WL, WL, WL, WL, WL],
+  [WL, FL, FL, WL, FL, FL, FL, FL, WL, FL, FL, FL, EN, FL, FL, FL, WL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, CH, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, CH, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, HE, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
+  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
+  [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
 ];
 
-export function checkValidMovement(nextPosition: IPositionProps, walker: string) {
+export function checkValidMovement(
+  nextPosition: IPositionProps,
+  walker: string
+) {
   const canvasValue = canvas[nextPosition.y][nextPosition.x];
 
   let result =
@@ -48,8 +65,9 @@ export function checkValidMovement(nextPosition: IPositionProps, walker: string)
 
 function getHeroValidMoves(canvasValue: any) {
   return {
-    valid: canvasValue === ECanvas.FLOOR || canvasValue === ECanvas.ENEMY,
+    valid: canvasValue === ECanvas.FLOOR || canvasValue === ECanvas.ENEMY || canvasValue === ECanvas.CHEST,
     dead: canvasValue === ECanvas.ENEMY,
+    chest: canvasValue === ECanvas.CHEST,
     door: canvasValue === ECanvas.DOOR,
   };
 }
@@ -58,6 +76,7 @@ function getEnemyValidMoves(canvasValue: any) {
   return {
     valid: canvasValue === ECanvas.FLOOR || canvasValue === ECanvas.HERO,
     dead: canvasValue === ECanvas.HERO,
+    chest: false,
     door: false,
   };
 }
