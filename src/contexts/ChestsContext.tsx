@@ -11,14 +11,14 @@ export const ChestsContext = React.createContext({
 })
 
 const ChestsProvider = (props: IProps) => {
-    const [chestsState, updateChestsState] = useState({
+    const [chests, setChests] = useState({
         totalChests: 2,
         openedChests: {
             total: 0,
             positions: []
         },
         updateOpenedChests: (position: IPositionProps) => {
-            updateChestsState((prevState) => {
+            setChests((prevState) => {
                 return {
                     totalChests: prevState.totalChests,
                     openedChests: {
@@ -31,7 +31,7 @@ const ChestsProvider = (props: IProps) => {
         }
     })
     return (
-        <ChestsContext.Provider value={chestsState}>{props.children}</ChestsContext.Provider>
+        <ChestsContext.Provider value={chests}>{props.children}</ChestsContext.Provider>
     )
 }
 
