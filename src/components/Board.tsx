@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import { CanvasContext } from "../contexts/CanvasContext";
 import { ChestsContext } from "../contexts/ChestsContext";
 import { ECanvas, GAME_SIZE } from "../settings/constants";
-import { canvas } from "../utils/helpers";
 import Chest from "./Chest";
 import Enemy from "./Enemy";
 import EnemyBig from "./EnemyBig";
@@ -9,17 +9,13 @@ import Hero from "./Hero";
 import ScoreBoard from "./ScoreBoard";
 import Trap from "./Trap";
 
-
-const getCanvasMap = () => {
+const getCanvasMap = (canvas: any) => {
   const array = [];
 
   for (let y = 0; y < canvas.length; y++) {
-    const canvasY = canvas[y];
-    for (let x = 0; x < canvasY.length; x++) {
-      const canvasYX = canvasY[x];
-
+    for (let x = 0; x < canvas.length; x++) {
       const position = { x, y };
-      const text = canvas[y][x] || canvasYX;
+      const text = canvas[y][x];
       const key = `${x}-${y}`;
 
       switch (text) {
@@ -45,15 +41,14 @@ const getCanvasMap = () => {
   return array;
 }
 
-const elements = getCanvasMap();
-
 const Board = () => {
   const chestsContext = useContext(ChestsContext);
+  const canvasContext = useContext(CanvasContext);
+  const Elements = getCanvasMap(canvasContext.canvas);
 
   return (
     <div>
-      <ScoreBoard />
-      {elements}
+      {Elements}
       {
         chestsContext.totalChests === chestsContext.openedChests.total && (
           <img src='./assets/opened-door.png' alt='' style={{
@@ -63,6 +58,7 @@ const Board = () => {
           }} />
         )
       }
+      <ScoreBoard />
       <img src="./assets/tileset.gif" alt="" width={GAME_SIZE} height={GAME_SIZE} />
     </div>
   )

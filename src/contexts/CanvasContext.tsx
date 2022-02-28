@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ECanvas } from "../settings/constants";
+import { ECanvas, EWalker } from "../settings/constants";
 import { IPositionProps, IProps } from "../settings/types";
 import { canvas, checkValidMovement, handleNextMovement } from "../utils/helpers";
 
@@ -17,10 +17,11 @@ const CanvasProvider = (props: IProps) => {
             if (nextMove?.valid) {
                 setCanvasState((prevState) => {
                     const newCanvas = [...prevState.canvas];
-                    const currentValue = newCanvas[currentPosition.y][currentPosition.x];
-
                     newCanvas[currentPosition.y][currentPosition.x] = ECanvas.FLOOR;
-                    newCanvas[nextPosition.y][nextPosition.x] = currentValue;
+
+                    if (walker === EWalker.HERO) newCanvas[nextPosition.y][nextPosition.x] = ECanvas.HERO
+                    if (walker === EWalker.ENEMY) newCanvas[nextPosition.y][nextPosition.x] = ECanvas.ENEMY;
+                    if (nextMove.dead) newCanvas[nextPosition.y][nextPosition.x] = ECanvas.HERO;
 
                     return {
                         canvas: newCanvas,

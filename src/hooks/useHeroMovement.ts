@@ -6,11 +6,13 @@ import { CanvasContext } from "../contexts/CanvasContext";
 import { ChestsContext } from "../contexts/ChestsContext";
 import { ScoreboardContext } from "../contexts/ScoreboardContext";
 import { gameOver, gameWin } from "../utils/messages";
+import { HeroContext } from "../contexts/HeroContext";
 
 const useHeroMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
   const chestsContext = useContext(ChestsContext);
   const scoreboardContext = useContext(ScoreboardContext);
+  const heroContext = useContext(HeroContext);
   const [position, setPosition] = useState(initialPosition);
   const [direction, setDirection] = useState(EDirection.RIGHT);
 
@@ -33,6 +35,10 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
 
     if (movement.nextMove.dead) {
       scoreboardContext.setHelthy();
+      heroContext.setPain(true);
+      setTimeout(() => {
+        heroContext.setPain(false);
+      }, 2000);
     }
 
     if (isStepFulled || isHelthyEmpty) {

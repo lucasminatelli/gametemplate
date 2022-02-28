@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CanvasProvider from '../contexts/CanvasContext';
 import ChestsProvider from '../contexts/ChestsContext';
+import HeroProvider from '../contexts/HeroContext';
 import ScoreboardProvider from '../contexts/ScoreboardContext';
 import { GAME_SIZE } from '../settings/constants';
 import './App.css';
@@ -29,8 +30,10 @@ function App() {
         <CanvasProvider>
           <ChestsProvider>
             <ScoreboardProvider>
-              {isEnabled === true ? <Debugger /> : <></>}
-              <Board />
+              <HeroProvider>
+                {isEnabled === true ? <Debugger /> : <></>}
+                <Board />
+              </HeroProvider>
             </ScoreboardProvider>
           </ChestsProvider>
         </CanvasProvider>
