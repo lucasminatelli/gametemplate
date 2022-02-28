@@ -31,7 +31,7 @@ const EB = ECanvas.ENEMYBIG;
 export const canvas = [
   [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],
   [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, DR, DR, WL, WL, WL, WL, WL],
-  [WL, FL, FL, WL, FL, FL, FL, FL, WL, FL, FL, FL, EN, FL, FL, EB, WL, FL, FL, WL],
+  [WL, FL, FL, WL, FL, FL, FL, FL, WL, FL, FL, FL, EN, FL, EB, WL, WL, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
   [WL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
   [WL, FL, CH, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, WL],
