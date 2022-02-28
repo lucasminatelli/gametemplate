@@ -20,13 +20,15 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
     }
 
     const movement = canvasContext.setCanvas(direction, position, EWalker.HERO);
+    const isStepFulled =
+      stepCounterContext.currentStep >= stepCounterContext.limit ? true : false;
 
     if (movement.nextMove.valid) {
       setPosition(movement.nextPosition);
       setDirection(direction);
       stepCounterContext.setSteps();
     }
-    if (movement.nextMove.dead) {
+    if (movement.nextMove.dead || isStepFulled) {
       alert("Game-over");
       window.location.reload();
     }
@@ -35,7 +37,7 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
     }
     if (
       chestsContext.openedChests.total === chestsContext.totalChests &&
-      movement.nextMove.door
+      movement.nextMove.door 
     ) {
       alert("Win");
       window.location.reload();

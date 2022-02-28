@@ -6,6 +6,7 @@ import Chest from "./Chest";
 import Enemy from "./Enemy";
 import EnemyBig from "./EnemyBig";
 import Hero from "./Hero";
+import ScoreBoard from "./ScoreBoard";
 import Trap from "./Trap";
 
 
@@ -51,6 +52,7 @@ const Board = () => {
 
   return (
     <div>
+      <ScoreBoard />
       {elements}
       {
         chestsContext.totalChests === chestsContext.openedChests.total && (
