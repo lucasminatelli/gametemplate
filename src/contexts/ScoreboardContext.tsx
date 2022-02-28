@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { IProps } from "../settings/types";
 
-export const StepCounterContext = React.createContext({
+export const ScoreboardContext = React.createContext({
     currentStep: 0,
     limit: 0,
     setSteps: () => null
 })
 
-const StepCounterProvider = (props: IProps) => {
+const ScoreboardProvider = (props: IProps) => {
     const [steps, setSteps] = useState({
         currentStep: 0,
         limit: 55,
@@ -22,8 +22,8 @@ const StepCounterProvider = (props: IProps) => {
         }
     })
     return (
-        <StepCounterContext.Provider value={steps}>{props.children}</StepCounterContext.Provider>
+        <ScoreboardContext.Provider value={steps}>{props.children}</ScoreboardContext.Provider>
     )
 }
 
-export default StepCounterProvider;
+export default ScoreboardProvider;

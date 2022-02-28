@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { StepCounterContext } from '../contexts/StepCounterContext';
+import { ScoreboardContext } from '../contexts/ScoreboardContext';
 
 const ScoreBoard = () => {
-    const stepCounterContext = useContext(StepCounterContext);
+    const scoreboardContext = useContext(ScoreboardContext);
 
     return (
         <div
@@ -12,7 +12,7 @@ const ScoreBoard = () => {
                 color: "white",
             }}
         >
-            Steps: {stepCounterContext.currentStep} | Limit: {stepCounterContext.limit}
+            Steps: {scoreboardContext.currentStep} | Limit: {scoreboardContext.limit}
         </div>
     )
 }

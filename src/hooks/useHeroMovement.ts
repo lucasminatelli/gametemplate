@@ -4,12 +4,12 @@ import { EDirection, EWalker } from "../settings/constants";
 import { IPositionProps } from "../settings/types";
 import { CanvasContext } from "../contexts/CanvasContext";
 import { ChestsContext } from "../contexts/ChestsContext";
-import { StepCounterContext } from "../contexts/StepCounterContext";
+import { ScoreboardContext } from "../contexts/ScoreboardContext";
 
 const useHeroMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
   const chestsContext = useContext(ChestsContext);
-  const stepCounterContext = useContext(StepCounterContext);
+  const scoreboardContext = useContext(ScoreboardContext);
   const [position, setPosition] = useState(initialPosition);
   const [direction, setDirection] = useState(EDirection.RIGHT);
 
@@ -21,12 +21,12 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
 
     const movement = canvasContext.setCanvas(direction, position, EWalker.HERO);
     const isStepFulled =
-      stepCounterContext.currentStep >= stepCounterContext.limit ? true : false;
+      scoreboardContext.currentStep >= scoreboardContext.limit ? true : false;
 
     if (movement.nextMove.valid) {
       setPosition(movement.nextPosition);
       setDirection(direction);
-      stepCounterContext.setSteps();
+      scoreboardContext.setSteps();
     }
     if (movement.nextMove.dead || isStepFulled) {
       alert("Game-over");
