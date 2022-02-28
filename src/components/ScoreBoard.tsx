@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ScoreboardContext } from '../contexts/ScoreboardContext';
 
 const ScoreBoard = () => {
@@ -12,7 +12,15 @@ const ScoreBoard = () => {
                 color: "white",
             }}
         >
-            Steps: {scoreboardContext.currentStep} | Limit: {scoreboardContext.limit} | Helthy: {scoreboardContext.helthy}
+            Steps: {scoreboardContext.currentStep} | Limit: {scoreboardContext.limit}
+            <div
+                style={{
+                    backgroundImage: "url(./assets/heart.png)",
+                    backgroundRepeat: "repeat-x",
+                    width: `${13*scoreboardContext.helthy}px`,
+                    height: "12px",
+                }}
+            />
         </div>
     )
 }
