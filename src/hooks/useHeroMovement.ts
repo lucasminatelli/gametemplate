@@ -5,6 +5,7 @@ import { IPositionProps } from "../settings/types";
 import { CanvasContext } from "../contexts/CanvasContext";
 import { ChestsContext } from "../contexts/ChestsContext";
 import { ScoreboardContext } from "../contexts/ScoreboardContext";
+import { gameOver, gameWin } from "../utils/messages";
 
 const useHeroMovement = (initialPosition: IPositionProps) => {
   const canvasContext = useContext(CanvasContext);
@@ -22,25 +23,30 @@ const useHeroMovement = (initialPosition: IPositionProps) => {
     const movement = canvasContext.setCanvas(direction, position, EWalker.HERO);
     const isStepFulled =
       scoreboardContext.currentStep >= scoreboardContext.limit ? true : false;
+    const isHelthyEmpty = scoreboardContext.helthy === 0 ? true : false;
 
     if (movement.nextMove.valid) {
       setPosition(movement.nextPosition);
       setDirection(direction);
       scoreboardContext.setSteps();
     }
-    if (movement.nextMove.dead || isStepFulled) {
-      alert("Game-over");
-      window.location.reload();
+
+    if (movement.nextMove.dead) {
+      scoreboardContext.setHelthy();
     }
+
+    if (isStepFulled || isHelthyEmpty) {
+      gameOver();
+    }
+
     if (movement.nextMove.chest) {
       chestsContext.updateOpenedChests(movement.nextPosition);
     }
     if (
       chestsContext.openedChests.total === chestsContext.totalChests &&
-      movement.nextMove.door 
+      movement.nextMove.door
     ) {
-      alert("Win");
-      window.location.reload();
+      gameWin();
     }
   });
 

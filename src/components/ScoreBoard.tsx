@@ -12,7 +12,7 @@ const ScoreBoard = () => {
                 color: "white",
             }}
         >
-            Steps: {scoreboardContext.currentStep} | Limit: {scoreboardContext.limit}
+            Steps: {scoreboardContext.currentStep} | Limit: {scoreboardContext.limit} | Helthy: {scoreboardContext.helthy}
         </div>
     )
 }
