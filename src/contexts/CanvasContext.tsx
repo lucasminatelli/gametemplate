@@ -7,7 +7,7 @@ export const CanvasContext = React.createContext({
     canvas: [],
     setCanvas: (direction: string, currentPosition: IPositionProps, walker: string) => null
 })
-
+ 
 const CanvasProvider = (props: IProps) => {
     const [canvasState, setCanvasState] = useState({
         canvas,
