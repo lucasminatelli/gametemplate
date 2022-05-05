@@ -26,7 +26,6 @@ const EN = ECanvas.ENEMY;
 const HE = ECanvas.HERO;
 const CH = ECanvas.CHEST;
 const TR = ECanvas.TRAP;
-const EB = ECanvas.ENEMYBIG;
 
 export const canvas = [
   [WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL, WL],

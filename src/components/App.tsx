@@ -9,7 +9,7 @@ import Board from './Board';
 import Debugger from './Debugger';
 
 function App() {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [isEnabled] = useState(false);
   return (
     <div className="App">
       <div
