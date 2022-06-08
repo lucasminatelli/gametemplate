@@ -1,4 +1,4 @@
-# Game Template
+# Mario Game Template
 This is a game inspired by Manual do Dev and I made some changes for practicing ☺️
 
 ## Link
