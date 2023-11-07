@@ -19,14 +19,6 @@ function App() {
           height: GAME_SIZE,
         }}
       >
-        {/* <div>
-          <button style={{
-            position: "absolute",
-            zIndex: 5,
-          }} onClick={() => setIsEnabled(!isEnabled)}>
-            Debug
-          </button>
-        </div> */}
         <CanvasProvider>
           <ChestsProvider>
             <ScoreboardProvider>
